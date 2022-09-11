@@ -40,7 +40,7 @@ def output():
     
 
     # The sorting algortims in c++, * use an if here for selection of the algorithm going to be used
-    if algorithms == "bubble":
+    if algorithms == "Bubble":
 
         #cpp
         start1 = timeit.default_timer()
@@ -57,7 +57,7 @@ def output():
 
 
 
-    elif algorithms == "merge":
+    elif algorithms == "Merge":
         #cpp
         start = timeit.default_timer()
         SortedNumsCpp = cppSortAlgorithms.merge_sort(randnums.astype(np.intc))
@@ -71,7 +71,7 @@ def output():
         end2 = (timeit.default_timer() - start2)*1000 # in milliseconds
         pythontime =  f"{end2:.5f}" 
         
-    elif algorithms == "insertion": 
+    elif algorithms == "Insertion": 
         #cpp
         start = timeit.default_timer()
         SortedNumsCpp = cppSortAlgorithms.insertion_sort(randnums.astype(np.intc))
@@ -85,32 +85,31 @@ def output():
         end2 = (timeit.default_timer() - start2)*1000 # in milliseconds
         pythontime =  f"{end2:.5f}" 
         
-    cpptime += " ms"
-    pythontime += " ms"
+    
 
 
     # Generate  random plot
     fig1 = Figure()
     axis1 = fig1.add_subplot(1, 1, 1)
-    axis1.set_title("random")
-    axis1.set_xlabel("value")
-    axis1.set_ylabel("n")
+    axis1.set_title("Generated random items")
+    axis1.set_xlabel("Items")
+    axis1.set_ylabel("Value")
     axis1.bar(range(size),randnums)
 
     # Generat cpp sorted plot
     fig2 = Figure()
     axis2 = fig2.add_subplot(1, 1, 1)
-    axis2.set_title(algorithms+" c++")
-    axis2.set_xlabel("value")
-    axis2.set_ylabel("n")
+    axis2.set_title(algorithms+" sort using c++")
+    axis2.set_xlabel("Items")
+    axis2.set_ylabel("Value")
     axis2.bar(range(size),SortedNumsCpp)
 
     # Generat python sorted plot
     fig3 = Figure()
     axis3 = fig3.add_subplot(1, 1, 1)
-    axis3.set_title(algorithms+" python")
-    axis3.set_xlabel("value")
-    axis3.set_ylabel("n")
+    axis3.set_title(algorithms+" sort using python")
+    axis3.set_xlabel("Items")
+    axis3.set_ylabel("Value")
     axis3.bar(range(size),SortedNumsPython)
 
 
