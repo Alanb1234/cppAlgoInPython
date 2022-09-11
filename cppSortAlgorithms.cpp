@@ -34,8 +34,6 @@ void bubble_sort(int* bubbleNumbers, int size) {
 }  
 
 
-
-
 // ***** Merge sort algorithm *****
 void merge(int* mergeNumbers, int p, int q, int r){
 
@@ -106,6 +104,31 @@ void merge_sort(int* mergeNumbers, int p, int r){
     }
 }
 
+
+// ***** Insertion sort algorithm *****
+void insertion_sort(int* insertionNumbers, int size){
+
+    for (int i = 1; i < size; i++)
+    { 
+        int key = insertionNumbers[i]; 
+        int j = i - 1; 
+  
+        // Move elements of arr[0..i-1],  
+        // that are greater than key, to one 
+        // position ahead of their 
+        // current position
+
+        while (j >= 0 && insertionNumbers[j] > key)
+        { 
+            insertionNumbers[j + 1] = insertionNumbers[j]; 
+            j = j - 1; 
+        } 
+        insertionNumbers[j + 1] = key; 
+	}
+}
+
+
+// Wrapper for bubble sort algorithm
 np::ndarray wrap_bubble_sort(np::ndarray const & bubbleNumbers) {
     
     // Make sure we get integers
@@ -124,7 +147,7 @@ np::ndarray wrap_bubble_sort(np::ndarray const & bubbleNumbers) {
 
 }
 
-
+// Wrapper for merge sort algorithm
 np::ndarray wrap_merge_sort(np::ndarray const & mergeNumbers) {
     
     // Make sure we get integers
@@ -142,6 +165,27 @@ np::ndarray wrap_merge_sort(np::ndarray const & mergeNumbers) {
 }
 
 
+// Wrapper for insertion sort algorithm
+np::ndarray wrap_insertion_sort(np::ndarray const & insertionNumbers) {
+    
+    // Make sure we get integers
+    if (insertionNumbers.get_dtype() != np::dtype::get_builtin<int>()) {
+        PyErr_SetString(PyExc_TypeError, "Incorrect array data type");
+        p::throw_error_already_set();
+    }
+
+
+
+    // Could also pass back a vector, but unsure if you use C++ or C
+    bubble_sort(reinterpret_cast<int*>(insertionNumbers.get_data()), insertionNumbers.shape(0));
+
+
+    return insertionNumbers;
+
+}
+
+
+
 
 // Deciding what to expose in the library python can import
 BOOST_PYTHON_MODULE(cppSortAlgorithms) {  // Thing in brackets should match output library name
@@ -150,6 +194,10 @@ BOOST_PYTHON_MODULE(cppSortAlgorithms) {  // Thing in brackets should match outp
     p::def("bubble_sort", wrap_bubble_sort);
     
     p::def("merge_sort", wrap_merge_sort);
+
+    p::def("insertion_sort", wrap_insertion_sort);
+
+
 }
 
 
