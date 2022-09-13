@@ -1,4 +1,4 @@
-#cppProgramsInPyhton
+# The power of interoperation between C++ and Pyhton
 
 The aim of this poject is to show how powerful interoperation between C++ and Pyhton can be.
 
