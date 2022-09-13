@@ -8,3 +8,7 @@ In order to show this, C++ algorithms have been wrapped using boost.python libra
 
 To illisturate the result a website has been created using flask, javascript, html and css. The random generated numpy array and the final sorted array's will be visualised using a matplot bar chart that is coverted to an image that is renderd on the webpage whenever the submit button is pressed.
 
+
+
+https://user-images.githubusercontent.com/24507885/189948659-677d451e-d13a-4d83-a297-42b4dabd3e44.mp4
+
