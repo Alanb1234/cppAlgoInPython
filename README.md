@@ -1,7 +1,10 @@
 #cppProgramsInPyhton
 
-The aim of this project was to show how interoperation between Python and C+ can produce programmes that are way faster and more efficient then programmes written in python alone.
+The aim of this poject is to show how powerful interoperation between C++ and Pyhton can be.
 
-Interoperation is achieved by using libraries such as boost.python can be used as a bridge between Python and C++.
+Pyhton is a powerfujl language but comes at the cost of being slow. This project shows how libraries that allow for interpoeration between Python and C++ (boost.pyhton in this case) can be used to create very fast executing python programmes.
 
-As an example of why interoperation is important, run times of sorting algorithms created using python alone and python and c++ will be compared. The results will be illistrated on a website.
+In order to show this, C++ algorithms have been wrapped using boost.python libraries then compiled to create a .so file that can be imported by python. The runtimes of the wrapped algorithms are compared with algoritims writen in python alone. The results usually show that the algorithms that utilize interoperability between C++ and python  are usually faster by an order of magnitude.
+
+To illisturate the result a website has been created using flask, javascript, html and css. The random generated numpy array and the final sorted array's will be visualised using a matplot bar chart that is coverted to an image that is renderd on the webpage when ever the submit button is pressed.
+
