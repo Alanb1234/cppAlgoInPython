@@ -1,6 +1,6 @@
 # The power of interoperation between C++ and Python
 
-The aim of this pr0ject is to show how powerful interoperation between C++ and Python can be.
+The aim of this project is to show how powerful interoperation between C++ and Python can be.
 
 Python is a powerful language but comes at the cost of being slow. This project shows how libraries that allow for interoperation between Python and C++ (boost.python in this case) can be used to create very fast executing python programmes.
 
